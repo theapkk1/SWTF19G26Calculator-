@@ -27,5 +27,7 @@ namespace Calculator
         {
             return Math.Pow(x, exp);
         }
+
+       
     }
 }
