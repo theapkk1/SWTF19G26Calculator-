@@ -72,8 +72,10 @@ namespace Calculator
             return Math.Pow(Accumulator, exponent);
         }
 
-
-
+        public void Clear()
+        {
+            Accumulator = 0; 
+        }
 
     }
 }
