@@ -10,23 +10,33 @@ namespace Calculator
 {
     public class Calculator
     {
+        public double Accumulator { get; set; } = 0;
+
         public double Add(double a, double b)
         {
+            Accumulator = 0;
+            Accumulator = a + b;
             return a + b;
         }
 
         public double Subtract(double a, double b)
         {
+            Accumulator = 0;
+            Accumulator = a - b;
             return a - b;
         }
 
         public double Multiply(double a, double b)
         {
+            Accumulator = 0;
+            Accumulator = a * b;
             return a * b;
         }
 
         public double Power(double x, double exp)
         {
+            Accumulator = 0;
+            Accumulator = Math.Pow(x, exp);
             return Math.Pow(x, exp);
         }
 
@@ -36,5 +46,34 @@ namespace Calculator
                 throw new System.DivideByZeroException("Attempted divide by zero");
                 return dividend / divisor;
         }
+
+        public double Add(double addend)
+        {
+            return Accumulator+ addend;
+        }
+
+        public double newSubtract(double subtractor)
+        {
+            return Accumulator - subtractor;
+        }
+
+        public double newMultiply(double multiplier)
+        {
+            return Accumulator * multiplier;
+        }
+
+        //public double newDivide(double divisor)
+        //{
+
+        //}
+
+        public double newPower(double exponent)
+        {
+            return Math.Pow(Accumulator, exponent);
+        }
+
+
+
+
     }
 }
