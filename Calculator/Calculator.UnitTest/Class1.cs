@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
+using DivideByZeroException = System.DivideByZeroException;
 
 namespace Calculator.UnitTest
 {
@@ -46,9 +48,24 @@ namespace Calculator.UnitTest
 
             [TestCase(1, 3, 1)]
             [TestCase(-1, -3, -1)]
-            public void Power_AAndB_returnsResult(double x, double exp, double result)
+            public void Power_xAndexp_returnsResult(double x, double exp, double result)
             {
                 Assert.That(uut.Power(x, exp), Is.EqualTo(result));
+            }
+
+            [TestCase(2, 2, 1)]
+            [TestCase(-2, 2, -1)]
+            public void Divide_dividendAnddivisor_returnsResult(double dividend, double divisor, double result)
+            {
+                Assert.That(uut.Divide(dividend, divisor), Is.EqualTo(result));
+            }
+
+            [Test]
+            public void Divide_dividendAnddivisor_returnsException()
+            {
+                var ex = Assert.Catch<DivideByZeroException>(() => uut.Divide(0, 0));
+                StringAssert.Contains("Attempted divide by zero", ex.Message);
+                // Her testes det, at metoden smider en exception, hvis et af tallene er lig med 0 
             }
 
         }
