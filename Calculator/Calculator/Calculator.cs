@@ -8,7 +8,7 @@ namespace Calculator
 {
     public class Calculator
     {
-        public double Accumulator { get; private set; }
+        public double Accumulator { get; set; } = 0;
 
         public double Add(double a, double b)
         {
@@ -38,7 +38,33 @@ namespace Calculator
             return Math.Pow(x, exp);
         }
 
+        public double Add(double addend)
+        {
+            return Accumulator+ addend;
+        }
 
-        
+        public double newSubtract(double subtractor)
+        {
+            return Accumulator - subtractor;
+        }
+
+        public double newMultiply(double multiplier)
+        {
+            return Accumulator * multiplier;
+        }
+
+        //public double newDivide(double divisor)
+        //{
+
+        //}
+
+        public double newPower(double exponent)
+        {
+            return Math.Pow(Accumulator, exponent);
+        }
+
+
+
+
     }
 }

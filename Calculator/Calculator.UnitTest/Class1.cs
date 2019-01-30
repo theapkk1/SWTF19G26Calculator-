@@ -51,6 +51,14 @@ namespace Calculator.UnitTest
                 Assert.That(uut.Power(x, exp), Is.EqualTo(result));
             }
 
+            [TestCase(2, 64)]
+            [TestCase(3, 512)]
+            public void newPower_AAndB_returnsResult(double exp, double result)
+            {
+                uut.Accumulator = 8;
+                Assert.That(uut.newPower(exp), Is.EqualTo(result));
+            }
+
         }
     }
 }
