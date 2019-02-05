@@ -26,6 +26,7 @@ namespace Calculator.UnitTest
             [TestCase(-2, -2, -4)]
             [TestCase(2.5, 2.5, 5)]
             [TestCase(2.5, -2.5, 0)]
+            [TestCase(2.5, 2, 4.5)]
             public void Add_AAndB_returnsResult(double a, double b, double result)
             {
                 Assert.That(uut.Add(a, b), Is.EqualTo(result).Within(0.01));
