@@ -74,8 +74,33 @@ namespace Calculator.UnitTest
             [TestCase(3, 512)]
             public void newPower_AAndB_returnsResult(double exp, double result)
             {
-                uut.Accumulator = 8;
+                uut.Add(4, 4);
                 Assert.That(uut.newPower(exp), Is.EqualTo(result));
+            }
+
+            [TestCase(6, 10)]
+            [TestCase(12, 16)]
+            public void newAdd_AAndB_returnsResult(double a, double result)
+            {
+                uut.Add(2, 2);
+                Assert.That(uut.newAdd(a), Is.EqualTo(result));
+            }
+
+            [TestCase(6, -2)]
+            [TestCase(12, -8)]
+            public void newSubtract_AAndB_returnsResult(double a, double result)
+            {
+                uut.Add(2, 2);
+                Assert.That(uut.newSubtract(a), Is.EqualTo(result));
+            }
+
+
+            [TestCase(6,  12)]
+            [TestCase(12, 24)]
+            public void newMultiply_AAndB_returnsResult(double a, double result)
+            {
+                uut.Subtract(4, 2);
+                Assert.That(uut.newMultiply(a), Is.EqualTo(result));
             }
 
         }
