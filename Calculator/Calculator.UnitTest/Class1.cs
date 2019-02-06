@@ -35,6 +35,7 @@ namespace Calculator.UnitTest
             [TestCase(2, 2, 0)]
             [TestCase(-2, -2, 0)]
             [TestCase(2.5, 1.5, 1)]
+            [TestCase(90, 20, 70)]
             public void Subtract_AAndB_returnResult(double a, double b, double result)
             {
                 Assert.That(uut.Subtract(a, b), Is.EqualTo(result));
